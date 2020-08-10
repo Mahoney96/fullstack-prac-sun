@@ -1,4 +1,4 @@
-require ('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const { CONNECTION_STRING} = process.env
@@ -17,9 +17,8 @@ massive ({
         console.log("Database is connected")
     }).catch(err=> console.log("Err connecting to DB/massive!", err))
 
-
-    
-
+app.get('/api/shoes', ctrl.getAllShoes )
+app.put('/api/shoes', ctrl.putAllShoes )
 
 
 app.listen(port, () =>console.log(`Hey Hey, Your Port, Works Today!! ${port}`))
